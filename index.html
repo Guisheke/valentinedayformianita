@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para mi amor</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffeaf3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      padding: 40px 30px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2.6em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #5a2a3a;
+      font-size: 1.1em;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #ff5fa2, #ff85c2);
+      color: white;
+      font-size: 1.1em;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(255, 95, 162, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(255, 95, 162, 0.6);
+    }
+
+    .hearts span {
+      position: fixed;
+      bottom: -50px;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 0.7; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Página 1 -->
+  <div class="container" id="page1">
+    <h1>Para mi amor 💖</h1>
+    <p>
+      He preparado algo con todo mi corazón,
+      solo para ti.
+    </p>
+    <a href="#" class="btn" onclick="showPage2()">Ábrelo, mi amor 💕</a>
+  </div>
+
+  <!-- Página 2 -->
+  <div class="container" id="page2" style="display:none;">
+    <h1>Mi princesa 👑</h1>
+    <p>
+Mi princesa hermosa:
+
+Por ti, ahora cada 14 de febrero es un abrazo a mi corazón. 
+Tú eres mi amor, mi amistad, mi razón de seguir viviendo y luchando.
+
+Te puedo asegurar que te amo más que a cualquier otra cosa y que quiero pasar todos los San Valentín que quedan de mi vida junto a ti.
+
+Luz de mi corazón, faro de mi vida, guía eterna para mi tranquilidad.
+
+No me importa nada, solo estar contigo: vivir contigo, gozar contigo, experimentar contigo; reír contigo, llorar contigo, sea lo que sea, pero estar ahí.
+
+Y que en mis peores días, me bastarán tus ojitos para reponerme.
+
+Feliz día de San Valentín, mi Ana hermosa, bella, futura esposa. 💍💖
+    </p>
+  </div>
+
+  <!-- Corazones -->
+  <div class="hearts">
+    <span style="left:10%; animation-delay:0s">💖</span>
+    <span style="left:30%; animation-delay:2s">💗</span>
+    <span style="left:50%; animation-delay:4s">💘</span>
+    <span style="left:70%; animation-delay:1s">🌸</span>
+    <span style="left:85%; animation-delay:3s">💞</span>
+  </div>
+
+  <script>
+    function showPage2() {
+      document.getElementById('page1').style.display = 'none';
+      document.getElementById('page2').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
