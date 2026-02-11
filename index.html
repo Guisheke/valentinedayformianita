@@ -97,9 +97,24 @@
 
   <!-- Página 2 -->
   <div class="container" id="page2" style="display:none;">
+    <div style="text-align:center; margin-bottom:15px;">
+      <button id="btnMusica" onclick="reproducirMusica()" style="
+        background: linear-gradient(135deg, #ff5fa2, #ff85c2);
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-size: 0.95em;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(255, 95, 162, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        🎶 Reproducir nuestra canción
+      </button>
+    </div>
     <h1>Mi princesa 👑</h1>
     <p>
-Mi princesa hermosa:
+Mi amada reina:
 
 Por ti, ahora cada 14 de febrero es un abrazo a mi corazón. 
 Tú eres mi amor, mi amistad, mi razón de seguir viviendo y luchando.
@@ -129,6 +144,23 @@ Feliz día de San Valentín, mi Ana hermosa, bella, futura esposa. 💍💖
     function showPage2() {
       document.getElementById('page1').style.display = 'none';
       document.getElementById('page2').style.display = 'block';
+    }
+  </script>
+
+  
+  <!-- Música -->
+  <audio id="musica" preload="auto">
+    <source src="the-fate-of-ophelia.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('musica');
+    audio.volume = 0.4; // Volumen al 40%
+
+    function reproducirMusica() {
+      audio.play();
+      document.getElementById('btnMusica').innerText = "🎶 Nuestra canción está sonando 💖";
     }
   </script>
 
