@@ -22,14 +22,20 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 25px;
       padding: 40px 30px;
       max-width: 600px;
       width: 90%;
       text-align: center;
       box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
-      animation: fadeIn 1.2s ease;
+      animation: fadeIn 1.2s ease, breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
     }
 
     h1 {
@@ -41,8 +47,9 @@
     p {
       color: #5a2a3a;
       font-size: 1.1em;
-      line-height: 1.7;
+      line-height: 1.8;
       white-space: pre-line;
+      min-height: 200px;
     }
 
     .btn {
@@ -56,6 +63,8 @@
       border-radius: 50px;
       box-shadow: 0 10px 25px rgba(255, 95, 162, 0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -92,44 +101,26 @@
       He preparado algo con todo mi corazón,
       solo para ti.
     </p>
-    <a href="#" class="btn" onclick="showPage2()">Ábrelo, mi amor 💕</a>
+    <button class="btn" onclick="showPage2()">Ábrelo, mi amor 💕</button>
   </div>
 
   <!-- Página 2 -->
   <div class="container" id="page2" style="display:none;">
     <div style="text-align:center; margin-bottom:15px;">
-      <button id="btnMusica" onclick="reproducirMusica()" style="
-        background: linear-gradient(135deg, #ff5fa2, #ff85c2);
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        border-radius: 30px;
-        font-size: 0.95em;
-        cursor: pointer;
-        box-shadow: 0 8px 20px rgba(255, 95, 162, 0.4);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <button id="btnMusica" class="btn" onclick="reproducirMusica()" style="font-size:0.95em; padding:10px 25px;">
         🎶 Reproducir nuestra canción
       </button>
     </div>
-    <h1>Mi princesa 👑</h1>
-    <p>
-Mi amada reina:
 
-Por ti, ahora cada 14 de febrero es un abrazo a mi corazón. 
-Tú eres mi amor, mi amistad, mi razón de seguir viviendo y luchando.
+    <h1>Para mi amada reina 👑</h1>
 
-Te puedo asegurar que te amo más que a cualquier otra cosa y que quiero pasar todos los San Valentín que quedan de mi vida junto a ti.
-
-Luz de mi corazón, faro de mi vida, guía eterna para mi tranquilidad.
-
-No me importa nada, solo estar contigo: vivir contigo, gozar contigo, experimentar contigo; reír contigo, llorar contigo, sea lo que sea, pero estar ahí.
-
-Y que en mis peores días, me bastarán tus ojitos para reponerme.
-
-Feliz día de San Valentín, mi Ana hermosa, bella, futura esposa. 💍💖
-    </p>
+    <p id="mensaje"></p>
   </div>
+
+  <!-- Música -->
+  <audio id="musica" preload="auto">
+    <source src="the-fate-of-ophelia.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- Corazones -->
   <div class="hearts">
@@ -144,19 +135,41 @@ Feliz día de San Valentín, mi Ana hermosa, bella, futura esposa. 💍💖
     function showPage2() {
       document.getElementById('page1').style.display = 'none';
       document.getElementById('page2').style.display = 'block';
+      escribirTexto();
     }
-  </script>
 
-  
-  <!-- Música -->
-  <audio id="musica" preload="auto">
-    <source src="the-fate-of-ophelia.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+    const texto = `
+Por ti, ahora cada 14 de febrero es un abrazo a mi corazón.
+Tú eres mi amor, mi amistad, mi razón de seguir viviendo y luchando.
 
-  <script>
+Te puedo asegurar que te amo más que a cualquier otra cosa y que quiero pasar todos los San Valentín que quedan de mi vida junto a ti.
+
+Luz de mi corazón, faro de mi vida, guía eterna para mi tranquilidad.
+
+No me importa nada, solo estar contigo: vivir contigo, gozar contigo, experimentar contigo; reír contigo, llorar contigo, sea lo que sea, pero estar ahí.
+
+Y que en mis peores días, me bastarán tus ojitos marrones para reponerme.
+
+Feliz día de San Valentín, mi Ana hermosa, bella, futura esposa. 💍💖
+`;
+
+    let i = 0;
+    function escribirTexto() {
+      const elemento = document.getElementById("mensaje");
+      elemento.innerHTML = "";
+      i = 0;
+      function escribir() {
+        if (i < texto.length) {
+          elemento.innerHTML += texto.charAt(i);
+          i++;
+          setTimeout(escribir, 25);
+        }
+      }
+      escribir();
+    }
+
     const audio = document.getElementById('musica');
-    audio.volume = 0.4; // Volumen al 40%
+    audio.volume = 0.4;
 
     function reproducirMusica() {
       audio.play();
