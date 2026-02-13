@@ -1,175 +1,211 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para mi amor</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Para mi amor</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: linear-gradient(-45deg, #ffd6e8, #ffeaf3, #ffc2dd, #ffe6f2);
-      background-size: 400% 400%;
-      animation: fondoMagico 18s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ffd6e8, #ffeaf3, #ffc2dd, #ffe6f2);
+  background-size: 400% 400%;
+  animation: fondoMagico 18s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
 
-    @keyframes fondoMagico {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+@keyframes fondoMagico {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    body::after {
-      content: "";
-      position: fixed;
-      width: 200%;
-      height: 200%;
-      background-image: radial-gradient(white 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: estrellas 60s linear infinite;
-      opacity: 0.25;
-      pointer-events: none;
-    }
+body::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: estrellas 60s linear infinite;
+  opacity: 0.25;
+  pointer-events: none;
+}
 
-    @keyframes estrellas {
-      from { transform: translateY(0); }
-      to { transform: translateY(-50%); }
-    }
+@keyframes estrellas {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
 
-    .container {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 25px;
-      padding: 40px 30px;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25),
-                  0 0 40px rgba(255, 182, 193, 0.6);
-      animation: fadeIn 1.2s ease, breathe 5s ease-in-out infinite;
-      position: relative;
-      z-index: 2;
-    }
+/* ❤️ Corazón grande */
+.corazon-grande {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  font-size: 90px;
+  animation: latido 2s infinite;
+  z-index: 3;
+}
 
-    @keyframes breathe {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
+@keyframes latido {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
 
-    h1 {
-      color: #d63384;
-      font-size: 2.6em;
-      margin-bottom: 20px;
-    }
+/* 📸 Foto abajo izquierda */
+.foto-romantica {
+  position: fixed;
+  bottom: 30px;
+  left: 40px;
+  width: 180px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: flotarFoto 4s ease-in-out infinite;
+  z-index: 3;
+}
 
-    p {
-      color: #5a2a3a;
-      font-size: 1.1em;
-      line-height: 1.8;
-      white-space: pre-line;
-      min-height: 200px;
-    }
+@keyframes flotarFoto {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      background: linear-gradient(135deg, #ff5fa2, #ff85c2);
-      color: white;
-      font-size: 1.1em;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 10px 25px rgba(255, 95, 162, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
+.container {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 25px;
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25),
+              0 0 40px rgba(255, 182, 193, 0.6);
+  animation: fadeIn 1.2s ease, breathe 5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
 
-    .btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(255, 95, 162, 0.6);
-    }
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
 
-    .hearts span {
-      position: fixed;
-      bottom: -50px;
-      font-size: 20px;
-      animation: floatUp 8s linear infinite;
-      opacity: 0.7;
-      z-index: 1;
-    }
+h1 {
+  color: #d63384;
+  font-size: 2.6em;
+  margin-bottom: 20px;
+}
 
-    @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 0; }
-      10% { opacity: 0.7; }
-      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
-    }
+p {
+  color: #5a2a3a;
+  font-size: 1.1em;
+  line-height: 1.8;
+  white-space: pre-line;
+  min-height: 200px;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #ff5fa2, #ff85c2);
+  color: white;
+  font-size: 1.1em;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(255, 95, 162, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(255, 95, 162, 0.6);
+}
+
+.hearts span {
+  position: fixed;
+  bottom: -50px;
+  font-size: 20px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.7; }
+  100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Página 1 -->
-  <div class="container" id="page1">
-    <h1>Para mi amor 💖</h1>
-    <p>
-      He preparado algo con todo mi corazón,
-      solo para ti.
-    </p>
-    <button class="btn" onclick="showPage2()">Ábrelo, mi amor 💕</button>
+<!-- ❤️ Corazón decorativo -->
+<div class="corazon-grande">💖</div>
+
+<!-- 📸 Foto de ustedes -->
+<img src="foto.jpg" class="foto-romantica">
+
+<!-- Página 1 -->
+<div class="container" id="page1">
+  <h1>Para mi amor 💖</h1>
+  <p>
+    He preparado algo con todo mi corazón,
+    solo para ti.
+  </p>
+  <button class="btn" onclick="showPage2()">Ábrelo, mi amor 💕</button>
+</div>
+
+<!-- Página 2 -->
+<div class="container" id="page2" style="display:none;">
+  <div style="text-align:center; margin-bottom:15px;">
+    <button id="btnMusica" class="btn" onclick="reproducirMusica()" style="font-size:0.95em; padding:10px 25px;">
+      🎶 Reproducir nuestra canción
+    </button>
   </div>
 
-  <!-- Página 2 -->
-  <div class="container" id="page2" style="display:none;">
-    <div style="text-align:center; margin-bottom:15px;">
-      <button id="btnMusica" class="btn" onclick="reproducirMusica()" style="font-size:0.95em; padding:10px 25px;">
-        🎶 Reproducir nuestra canción
-      </button>
-    </div>
+  <h1>Para mi amada reina 👑</h1>
+  <p id="mensaje"></p>
+</div>
 
-    <h1>Para mi amada reina 👑</h1>
+<audio id="musica" preload="auto">
+  <source src="the-fate-of-ophelia.mp3" type="audio/mpeg">
+</audio>
 
-    <p id="mensaje"></p>
-  </div>
+<div class="hearts">
+  <span style="left:10%; animation-delay:0s">💖</span>
+  <span style="left:30%; animation-delay:2s">💗</span>
+  <span style="left:50%; animation-delay:4s">💘</span>
+  <span style="left:70%; animation-delay:1s">🌸</span>
+  <span style="left:85%; animation-delay:3s">💞</span>
+</div>
 
-  <!-- Música -->
-  <audio id="musica" preload="auto">
-    <source src="the-fate-of-ophelia.mp3" type="audio/mpeg">
-  </audio>
+<script>
+function showPage2() {
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'block';
+  escribirTexto();
+}
 
-  <!-- Corazones -->
-  <div class="hearts">
-    <span style="left:10%; animation-delay:0s">💖</span>
-    <span style="left:30%; animation-delay:2s">💗</span>
-    <span style="left:50%; animation-delay:4s">💘</span>
-    <span style="left:70%; animation-delay:1s">🌸</span>
-    <span style="left:85%; animation-delay:3s">💞</span>
-  </div>
-
-  <script>
-    function showPage2() {
-      document.getElementById('page1').style.display = 'none';
-      document.getElementById('page2').style.display = 'block';
-      escribirTexto();
-    }
-
-    const texto = `
+const texto = `
 Por ti, ahora cada 14 de febrero es un abrazo a mi corazón.
 Tú eres mi amor, mi amistad, mi razón de seguir viviendo y luchando.
 
@@ -184,29 +220,29 @@ Y que en mis peores días, solo me baste ver tus ojitos marrones para reponerme.
 Feliz día de San Valentín, mi Ana hermosa, mi bella y futura esposa. 💖
 `;
 
-    let i = 0;
-    function escribirTexto() {
-      const elemento = document.getElementById("mensaje");
-      elemento.innerHTML = "";
-      i = 0;
-      function escribir() {
-        if (i < texto.length) {
-          elemento.innerHTML += texto.charAt(i);
-          i++;
-          setTimeout(escribir, 25);
-        }
-      }
-      escribir();
+let i = 0;
+function escribirTexto() {
+  const elemento = document.getElementById("mensaje");
+  elemento.innerHTML = "";
+  i = 0;
+  function escribir() {
+    if (i < texto.length) {
+      elemento.innerHTML += texto.charAt(i);
+      i++;
+      setTimeout(escribir, 25);
     }
+  }
+  escribir();
+}
 
-    const audio = document.getElementById('musica');
-    audio.volume = 0.4;
+const audio = document.getElementById('musica');
+audio.volume = 0.4;
 
-    function reproducirMusica() {
-      audio.play();
-      document.getElementById('btnMusica').innerText = "🎶 Nuestra canción está sonando 💖";
-    }
-  </script>
+function reproducirMusica() {
+  audio.play();
+  document.getElementById('btnMusica').innerText = "🎶 Nuestra canción está sonando 💖";
+}
+</script>
 
 </body>
 </html>
